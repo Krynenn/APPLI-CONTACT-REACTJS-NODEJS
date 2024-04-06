@@ -199,49 +199,6 @@ app.get('/groups', async (req, res) => {
 });
 
 
-//Modification d'un contact
-/*
-app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
-  const { originalname, path } = req.file;
-  const parts = originalname.split('.');
-  const ext = parts[parts.length - 1];
-  const newPath = path + '.' + ext;
-  fs.renameSync(path,newPath);
-
-
-  const { token } = req.cookies;
-  jwt.verify(token, secret, {}, async (err, info) => {
-      if (err) {
-          console.error('Erreur lors de la vérification du token JWT :', err);
-          return res.status(401).json('Unauthorized');
-      }
-
-      const { Nom, Prenom, Numero, selectedGroupes } = req.body;
-
-      // Convertir les identifiants de groupe en ObjectIds
-      
-
-      try {
-          const postDoc = await Contact.create({
-              Nom,
-              Prenom,
-              Numero,
-              Cover: newPath,
-              Favori: false,
-              Author: info.id,
-             
-          });
-
-          res.json(postDoc);
-      } catch (error) {
-          console.error('Erreur lors de la création du contact :', error);
-          res.status(500).json('Erreur lors de la création du contact');
-      }
-  });
-});
-
-*/
-
 //Trouver les contacts d'un utilisateur
 app.get('/post', async (req, res) => {
     const {token} = req.cookies;
